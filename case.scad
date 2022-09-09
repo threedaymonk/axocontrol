@@ -72,12 +72,8 @@ module cutouts() {
         // Audio
         translate([17.5, 8, 0]) circle(d=12.5);
         translate([37, 8, 0]) circle(d=12.5);
-        // Headphone
-        translate([52.5, 2.5, 0]) circle(d=7);
         // Micro USB
         translate([63, 1.5, 0]) rrect([12, 8], center=true);
-        // Micro SD
-        //translate([76, 1, 0]) square([14.3, 2.0], center=true);
         // USB A
         translate([87, 7.2, 0]) rrect([8, 16], r=1, center=true);
         // LEDs
@@ -91,10 +87,10 @@ module cutouts() {
         translate([142, 10, 0]) circle(d=15);
 
         // Merge Micro USB, Micro SD, and USB A
-        translate([74, 1.5, 0]) rrect([34, 8], r=1, center=true);
-
+        translate([69.5, 2, 0]) rrect([43, 9], r=1, center=true);
       }
     }
+    // Bottom access for Micro SD
     translate([wall_th + gap_x + 76 - 14/2, -10, -20])
       rounded_cube([14, 16.5, 20 + 2.2], r = 1);
   }
