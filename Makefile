@@ -1,3 +1,4 @@
+MAKEFLAGS += -j4
 OUTPUTS = case.stl spacer.stl acrylic.svg
 
 .PHONY: all clean
