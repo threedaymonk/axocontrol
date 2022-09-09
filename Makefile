@@ -1,4 +1,4 @@
-OUTPUTS = case.stl
+OUTPUTS = case.stl spacer.stl
 
 .PHONY: all clean
 
@@ -11,6 +11,8 @@ all: $(OUTPUTS)
 	openscad -o $@ $<
 
 case.stl: case.scad rounded.scad constants.scad
+
+spacer.stl: spacer.scad rounded.scad constants.scad
 
 clean:
 	rm -f $(OUTPUTS)

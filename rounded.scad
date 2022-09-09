@@ -34,3 +34,31 @@ module rounded_bottom_cube(size, r = 1, center = false, square_off = 0) {
     }
   }
 }
+
+module screw_boss(height, hole_dia = 3.5, head_dia = 6.5, pos = true,
+                  chamfer = 1, mount_thickness = 0.6, inner_dia, outer_dia) {
+
+  inner_dia = (inner_dia == undef) ? hole_dia + 0.5 : inner_dia;
+  outer_dia = (outer_dia == undef) ? inner_dia + 2 : outer_dia;
+
+	chamfer = (chamfer[0] == undef) ? [chamfer, chamfer] : chamfer;
+  chamfer_max = max(chamfer[0], chamfer[1]);
+  csx = (outer_dia + 2 * chamfer[0]) / (outer_dia + 2 * chamfer_max);
+  csy = (outer_dia + 2 * chamfer[1]) / (outer_dia + 2 * chamfer_max);
+
+  if (pos) {
+    difference() {
+      translate([0, 0, - $e]) {
+        cylinder(d = outer_dia, h = height + $e);
+        scale([csx, csy, 1])
+          cylinder(d1 = outer_dia + 2 * chamfer_max, d2 = outer_dia, h = chamfer_max + $e);
+      }
+      cylinder(d = inner_dia, h = height + $e);
+    }
+  } else {
+    translate([0, 0, -100]) {
+      cylinder(d = head_dia, h = 100 - mount_thickness);
+      cylinder(d = hole_dia, h = 100 + $e);
+    }
+  }
+}
