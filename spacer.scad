@@ -4,7 +4,7 @@ include <constants.scad>
 plate_sx = size_x - 2 * wall_th;
 plate_sy = size_y - 2 * wall_th;
 margin = gap_x + 7;
-plate_th = 4;
+plate_th = 3.2;
 
 module each_screw() {
   translate([wall_th + gap_x, wall_th + gap_y])
@@ -20,11 +20,13 @@ module plate() {
         difference() {
           rounded_square([plate_sx, plate_sy], r = corner_r - wall_th);
           translate([margin, margin])
-            rounded_square([plate_sx - 2 * margin, plate_sy - 2 * margin], r = 2);
+            rounded_square([79, plate_sy - 2 * margin], r = 2);
+          translate([margin + 88, margin])
+            rounded_square([plate_sx - 2 * margin - 88, plate_sy - 2 * margin], r = 2);
         }
       }
-      translate([wall_th + gap_x + 7, wall_th + gap_y - 1])
-        square([41, 4]);
+      translate([wall_th + gap_x + 6, wall_th + gap_y - 1])
+        square([43, 4]);
     }
   }
 }
@@ -38,7 +40,7 @@ difference() {
   }
   translate([0, 0, plate_th])
     each_screw()
-      screw_boss(height = 10 - plate_th, pos = false);
+      screw_boss(height = 10 - plate_th, mount_thickness = 0, pos = false);
 }
 
 for (y = [wall_th + margin / 2, size_y - wall_th - margin / 2])

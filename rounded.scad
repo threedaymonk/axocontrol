@@ -57,7 +57,8 @@ module screw_boss(height, hole_dia = 3.5, head_dia = 6.5, pos = true,
     }
   } else {
     translate([0, 0, -100]) {
-      cylinder(d = head_dia, h = 100 - mount_thickness);
+      if (mount_thickness > 0)
+        cylinder(d = head_dia, h = 100 - mount_thickness);
       cylinder(d = hole_dia, h = 100 + $e);
     }
   }
