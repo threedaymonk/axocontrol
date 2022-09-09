@@ -123,3 +123,9 @@ difference() {
   cutouts();
   feet();
 }
+
+if ($preview) {
+  translate([module_sx + wall_th + gap_x, wall_th + gap_y, pcb_th + base_th + gap_z])
+    rotate([90, 0, 180])
+      import("axoloti.stl");
+}
