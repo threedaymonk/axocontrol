@@ -1,18 +1,6 @@
 include <rounded.scad>
 include <constants.scad>
 
-module rrect(size = [1, 1], r = 0.5, center = false) {
-	size = (size[0] == undef) ? [size, size] : size;
-  sx = size[0]; sy = size[1];
-
-	shift = (center == false) ? [r, r] : [r - sx/2, r - sy/2];
-
-	translate(shift) minkowski() {
-    square([sx - r*2, sy - r*2]);
-    circle(r = r);
-  }
-}
-
 module shell() {
   difference() {
     rounded_bottom_cube(
@@ -73,9 +61,9 @@ module cutouts() {
         translate([17.5, 8, 0]) circle(d=12.5);
         translate([37, 8, 0]) circle(d=12.5);
         // Micro USB
-        translate([63, 1.5, 0]) rrect([12, 8], center=true);
+        translate([63, 1.5, 0]) rounded_square([12, 8], center=true);
         // USB A
-        translate([87, 7.2, 0]) rrect([8, 16], r=1, center=true);
+        translate([87, 7.2, 0]) rounded_square([8, 16], r=1, center=true);
         // LEDs
         translate([93.5, 0.4, 0]) circle(d=2);
         translate([97, 0.4, 0]) circle(d=2);
@@ -87,7 +75,7 @@ module cutouts() {
         translate([142, 10, 0]) circle(d=15);
 
         // Merge Micro USB, Micro SD, and USB A
-        translate([69.5, 2, 0]) rrect([43, 9], r=1, center=true);
+        translate([69.5, 2, 0]) rounded_square([43, 9], r=1, center=true);
       }
     }
     // Bottom access for Micro SD
