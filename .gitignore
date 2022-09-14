@@ -5,3 +5,4 @@ fp-info-cache
 *auto_save*
 jlcpcb/assembly
 jlcpcb/gerber
+*.stl
