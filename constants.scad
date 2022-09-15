@@ -13,7 +13,7 @@ base_th = 3.2;
 
 gap_z = 3;
 pcb_th = 1.6;
-gap_x = 2;
+gap_x = 3;
 gap_y = 1;
 
 size_x = module_sx + 2 * wall_th + 2 * gap_x;
