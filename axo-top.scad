@@ -29,7 +29,7 @@ module panel(height) {
       for(i = [0 : 2]) translate([x_off + i * h_pitch, y_off + 57]) circle(d = button_d);
       for(i = [0 : 2]) translate([x_off + i * h_pitch, y_off + 68.5]) circle(d = led_d);
 
-      translate([x_off + 11, y_off + 32]) rounded_square([25, 12], center=true, r=1);
+      translate([x_off + 11, y_off + 31.5]) rounded_square([25, 13], center=true, r=1);
     }
   }
 }
