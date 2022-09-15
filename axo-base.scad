@@ -71,8 +71,10 @@ module cutouts() {
         translate([101.5, 0.5, 0]) square(3, center=true);
         translate([107, 0.5, 0]) square(3, center=true);
         // MIDI
-        translate([121.5, 10, 0]) circle(d=15);
-        translate([142, 10, 0]) circle(d=15);
+        hull() {
+          translate([121.5, 10, 0]) circle(d=18);
+          translate([142, 10, 0]) circle(d=18);
+        }
 
         // Merge Micro USB, Micro SD, and USB A
         translate([69.5, 2, 0]) rounded_square([43, 9], r=1, center=true);
