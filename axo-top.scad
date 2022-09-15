@@ -66,11 +66,8 @@ difference() {
     strut(height = strut_th + panel_th);
     translate([0, 0, strut_th + panel_th])
       each_screw()
-        screw_boss(height = 10 - strut_th, chamfer = [0.5, 3], pos = true);
+        screw_boss(height = 10 - strut_th, chamfer = [0.5, 3], inner_dia = 4, pos = true);
   }
-  translate([0, 0, strut_th + panel_th])
-    each_screw()
-      screw_boss(height = 10 - strut_th, mount_thickness = 0.5, pos = false);
 }
 
 for (y = [wall_th + margin / 2, size_y - wall_th - margin / 2])
