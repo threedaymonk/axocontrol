@@ -1,5 +1,5 @@
 MAKEFLAGS += -j4
-OUTPUTS = case.stl spacer.stl
+OUTPUTS = axo-top.stl axo-base.stl
 
 .PHONY: all clean
 
@@ -11,9 +11,9 @@ all: $(OUTPUTS)
 %.svg: %.scad
 	openscad -o $@ $<
 
-case.stl: case.scad rounded.scad constants.scad
+axo-base.stl: axo-base.scad rounded.scad constants.scad
 
-spacer.stl: spacer.scad rounded.scad constants.scad
+axo-top.stl: axo-top.scad rounded.scad constants.scad
 
 clean:
 	rm -f $(OUTPUTS)
