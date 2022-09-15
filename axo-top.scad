@@ -9,7 +9,7 @@ strut_th = 3.2 - panel_th;
 
 pot_d = 8;
 button_d = 10;
-led_d = 3.5;
+led_d = 3.0;
 x_off = 14 + wall_th + gap_x;
 y_off = wall_th + gap_y;
 h_pitch = 22;
