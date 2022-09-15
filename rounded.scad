@@ -48,12 +48,13 @@ module screw_boss(height, hole_dia = 3.5, head_dia = 6.5, pos = true,
 
   if (pos) {
     difference() {
-      translate([0, 0, - $e]) {
+      translate([0, 0, -$e]) {
         cylinder(d = outer_dia, h = height + $e);
         scale([csx, csy, 1])
           cylinder(d1 = outer_dia + 2 * chamfer_max, d2 = outer_dia, h = chamfer_max + $e);
       }
-      cylinder(d = inner_dia, h = height + $e);
+      translate([0, 0, -2 * $e])
+        cylinder(d = inner_dia, h = height + 3 * $e);
     }
   } else {
     translate([0, 0, -100]) {
