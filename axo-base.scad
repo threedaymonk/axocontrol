@@ -45,10 +45,10 @@ module boss(h, pos = true) {
 }
 
 module bosses(pos = true) {
-  translate([wall_th + gap_x, wall_th + gap_y, 0])
+  translate([wall_th + gap_x, wall_th + gap_y, base_th])
     for(xyh = bosses)
       translate([xyh[0], xyh[1], 0])
-        boss(h = xyh[2], pos = pos);
+        screw_boss(height = xyh[2], chamfer = [0.5, 3], pos = pos);
 }
 
 module cutouts() {
