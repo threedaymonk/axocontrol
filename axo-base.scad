@@ -48,7 +48,8 @@ module bosses(pos = true) {
   translate([wall_th + gap_x, wall_th + gap_y, base_th])
     for(xyh = bosses)
       translate([xyh[0], xyh[1], 0])
-        screw_boss(height = xyh[2], chamfer = [0.5, 3], pos = pos);
+        if (xyh[2] > 0)
+          screw_boss(height = xyh[2], chamfer = [0.5, 3], pos = pos);
 }
 
 module cutouts() {
@@ -68,8 +69,8 @@ module cutouts() {
         translate([93.5, 0.4, 0]) circle(d=2);
         translate([97, 0.4, 0]) circle(d=2);
         // Switches
-        translate([101.5, 0.5, 0]) square(3, center=true);
-        translate([107, 0.5, 0]) square(3, center=true);
+        translate([101.5, 0.5, 0]) circle(d=4);
+        translate([107, 0.5, 0]) circle(d=4);
         // MIDI
         hull() {
           translate([121.5, 10, 0]) circle(d=18);
