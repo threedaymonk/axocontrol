@@ -54,8 +54,13 @@ module bosses(pos = true) {
 
 module cutouts() {
   translate([0, 0, base_th + gap_z + pcb_th]) {
-    translate([size_x - wall_th - 10, wall_th + gap_y + 15, -1])
-      cube([20, 11, 13]);
+    // Barrel connector
+    translate([size_x - wall_th - 1, wall_th + gap_y + 15, -1])
+      cube([wall_th + 1 - 0.8, 11, 13]);
+    translate([size_x - wall_th, wall_th + gap_y + 20.5, 6.5])
+      rotate([0, 90, 0])
+        cylinder(d=9, h=20, center=true);
+
     translate([wall_th + gap_x, wall_th + 2, 0]) {
       rotate([90, 0, 0]) linear_extrude(height = 10) {
         // Audio
@@ -90,7 +95,7 @@ module cutouts() {
 module feet() {
   // Feet
   foot_d = 10.5;
-  foot_x = 17;
+  foot_x = 20;
   foot_y = 12;
   foot_depth = 1.2;
   feet = [
