@@ -26,6 +26,7 @@ and an I2C OLED screen and removes the joystick.
 |  10 | C1-9 | Capacitor 0603 100n | Might not be needed, can also try 10n for C9 and C10 |
 |   3 | R1-3 | Resistor 0603 1k | |
 |   2 | R5, R6 | Resistor 0603 10k | |
+|   3 | D1-3 | 3mm LED | |
 |   1 | | 0.96" White I2C SSD1306 OLED | Pin order VCC GND SCL SDA, e.g. [Banggood](https://uk.banggood.com/5Pcs-0_96-Inch-4Pin-White-IIC-I2C-OLED-Display-Module-12864-LED-p-971295.html) |
 |   1 | | 1×40 2.54mm header | |
 |   1 | | 1×40 2.54mm socket | |
